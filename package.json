@@ -1,8 +1,8 @@
 {
-  "name": "MarcySutton_com-astro-site",
+  "name": "marcysutton-astro-site",
   "description": "v6 of MarcySutton.com - migrated to Astro",
   "version": "1.0.0",
-  "author": "Marcy Sutton <marcy@marcysutton.com>",
+  "author": "Marcy Sutton <holla@marcysutton.com>",
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -12,10 +12,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.0.0",
-    "@astrojs/mdx": "^2.0.0",
-    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/mdx": "^4.3.5",
     "@astrojs/rss": "^4.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "astro": "^5.13.7",
     "sharp": "^0.33.0"
   },
   "keywords": [
@@ -30,6 +30,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcysutton/gatsby-site"
+    "url": "https://github.com/marcysutton/astro-site"
   }
 }

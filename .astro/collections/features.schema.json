@@ -1,0 +1,38 @@
+{
+  "$ref": "#/definitions/features",
+  "definitions": {
+    "features": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "extendedDescription": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "coverImage": {
+          "type": "string"
+        },
+        "imageAlt": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "path"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,38 @@
+{
+  "$ref": "#/definitions/talks",
+  "definitions": {
+    "talks": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "videoSrcURL": {
+          "type": "string"
+        },
+        "videoTitle": {
+          "type": "string"
+        },
+        "posterImg": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "date",
+        "path"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

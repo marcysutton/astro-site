@@ -1,5 +1,21 @@
 [
   {
+    "link": "https://www.youtube.com/watch?v=0MssMIrqxGU",
+    "name": "Leet Heat S1.E7: SaaS founder vs. a11y expert in web dev trivia"
+  },
+  {
+    "link": "https://www.youtube.com/watch?v=lKX10eporCw",
+    "name": "Chromatic webinar: Pragmatic accessibility testing for developers"
+  },
+  {
+    "link": "https://syntax.fm/show/836/real-talk-on-web-accessibility-with-marcy-sutton-todd",
+    "name": "Syntax.fm: Real Talk on Web Accessibility"
+  },
+  {
+    "link": "https://www.youtube.com/watch?v=deybMk7hiuM",
+    "name": "Frontend Masters Podcast Ep.13: A Deep Dive into Web Accessibility Insights"
+  },
+  {
     "link": "https://frontendmasters.com/teachers/marcy-sutton/",
     "name": "Marcy's courses on Frontend Masters"
   },

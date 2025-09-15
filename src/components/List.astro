@@ -9,6 +9,7 @@ export interface Props {
   pathname?: string;
   allItems?: boolean;
   linkNewWindow?: boolean;
+  showExcerpts?: boolean;
 }
 
 const {
@@ -18,21 +19,24 @@ const {
   items,
   pathname = '',
   allItems = false,
-  linkNewWindow = false
+  linkNewWindow = false,
+  showExcerpts = false,
 } = Astro.props;
 
 // Filter out unlisted items and current page item
 const filteredItems = items
   .filter(item => !item.data.unlisted)
   .filter(item => pathname.indexOf(item.data.path) === -1);
+
+console.log('items:', items);
 ---
 
 <div class={`list ${className}`}>
   {subtitle && <h2 class="subhead">{subtitle}</h2>}
 
   <ul>
-    {filteredItems.map(item => (
-      <li key={item.id}>
+    {items.map(item => (
+      <li>
         <a
           class="item"
           href={item.data.path}
@@ -41,7 +45,7 @@ const filteredItems = items
         >
           {item.data.title}
         </a>
-        {item.data.excerpt && (
+        {showExcerpts && item.data.excerpt && (
           <div set:html={item.data.excerpt}></div>
         )}
       </li>

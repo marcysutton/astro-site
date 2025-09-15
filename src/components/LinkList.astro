@@ -1,9 +1,10 @@
 ---
 export interface Props {
   className?: string;
-  subtitle: string;
+  subtitle?: string;
   subhead?: string;
-  items: Array<{id: string; name: string; link: string}>;
+  items: Array<{id?: string; name: string; link: string}>;
+  allItems?: boolean;
   listName: string;
   linkNewWindow?: boolean;
 }
@@ -13,17 +14,19 @@ const {
   subtitle,
   subhead,
   items,
+  allItems,
   listName,
   linkNewWindow = false
 } = Astro.props;
 ---
 
-<div class={`link-list ${className}`}>
-  <h2 class="subhead">{subtitle}</h2>
+<div class={`link-list list ${className}`}>
+  {subtitle && <h2 class="subhead">{subtitle}</h2>}
   <ul>
-    {items.map(item => (
-      <li key={item.id}>
+    {Array.from(items).map(item => (
+      <li>
         <a
+          class="item"
           href={item.link}
           target={linkNewWindow ? '_blank' : undefined}
           rel={linkNewWindow ? 'noopener noreferrer' : undefined}

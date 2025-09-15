@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import RouteTargetHeading from '../components/RouteTargetHeading.astro';
+import LinkList from "../components/LinkList.astro";
+import Items from "../data/links.json";
+
+import linkPageImage from '../site-images/cascadiafest-netmag.jpg';
+---
+
+<BaseLayout
+  title="Links"
+  bodyClass="page"
+  pathname="/links/"
+  description=""
+>
+<section class="generic-wrap">
+  <div class="breathing-room">
+      <RouteTargetHeading>
+          Links
+      </RouteTargetHeading>
+      <Image
+          class="floating-image width50"
+          src={linkPageImage}
+          alt="Netmag layout: Marcy emceeing CascadiaFest in a Canadian Mounty costume with Matthew Claypotch on stage in a horse head"
+      />
+      <p>A list of blog posts and podcasts on other sites, either written by me or referencing me somehow.</p>
+      <p>All links open in new windows.</p>
+      <LinkList 
+          className="list-links no-background"
+          items={ Items }
+          listName="links"
+          allItems={true}
+          linkNewWindow={true} />
+  </div>
+</section>
+</BaseLayout>

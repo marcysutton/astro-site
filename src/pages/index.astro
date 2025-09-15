@@ -4,17 +4,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import List from '../components/List.astro';
 import MediaGrid from '../components/MediaGrid.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
+import LinkList from '../components/LinkList.astro';
+import Items from "../data/links.json";
 
 // Get content collections
 const allPosts = await getCollection('posts');
 const allFeatures = await getCollection('features');
 const allTalks = await getCollection('talks');
+const sevenItems = Object.values(Items).slice(0, 7);
 
 // Sort posts by date (most recent first)
 const recentPosts = allPosts
-  .filter(post => !post.data.homeList === false && !post.data.unlisted)
+  // .filter(post => !post.data.homeList === false && !post.data.unlisted)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 6);
+
+  console.log(allPosts)
 
 // Get featured item (Testing Accessibility)
 const featuredFeature = allFeatures.find(feature =>
@@ -25,13 +30,6 @@ const featuredFeature = allFeatures.find(feature =>
 const recentTalks = allTalks
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 6);
-
-// Mock data for links (will need to be replaced with actual data source)
-const links = [
-  { id: '1', name: 'Testing Accessibility Workshop', link: 'https://testingaccessibility.com' },
-  { id: '2', name: 'Accessibility Articles', link: '/writing/' },
-  // Add more links as needed
-];
 
 // Mock data for gallery (will need to be replaced with actual images)
 const galleryImages = [
@@ -72,6 +70,7 @@ const galleryImages = [
         className="list-writing-home breathing-room"
         subtitle="Latest:Writing"
         items={recentPosts}
+        showExcerpts={false}
         listName="writing"
       />
     </div>
@@ -91,19 +90,12 @@ const galleryImages = [
   <section class="list-image-wrap" aria-label="links">
     <div class="list-links-home breathing-room">
       <h2 class="subhead">Latest:Professional</h2>
-      <ul>
-        {links.map(item => (
-          <li key={item.id}>
-            <a
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {item.name}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <LinkList 
+          className="list-links no-background"
+          items={ sevenItems }
+          listName="links"
+          allItems={true}
+          linkNewWindow={true} />
     </div>
     <div class="retro-image"></div>
   </section>

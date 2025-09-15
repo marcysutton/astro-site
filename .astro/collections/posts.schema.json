@@ -1,0 +1,47 @@
+{
+  "$ref": "#/definitions/posts",
+  "definitions": {
+    "posts": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "coverImage": {
+          "type": "string"
+        },
+        "excerpt": {
+          "type": "string"
+        },
+        "shortTitle": {
+          "type": "string"
+        },
+        "imageAlt": {
+          "type": "string"
+        },
+        "homeList": {
+          "type": "boolean"
+        },
+        "unlisted": {
+          "type": "boolean"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "date",
+        "path"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

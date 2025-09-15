@@ -203,6 +203,7 @@ html {
   box-sizing: inherit;
 }
 img {
+  height: auto;
   max-width: 100%;
   margin-left: 0;
   margin-right: 0;
