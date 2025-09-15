@@ -1,0 +1,70 @@
+---
+export interface Props {
+  pathname?: string;
+}
+
+const { pathname } = Astro.props;
+const isHome = pathname === '/';
+const isWriting = pathname?.includes('post') || pathname === '/writing/';
+const isTalks = pathname?.includes('talk') || pathname === '/talks/';
+---
+
+<header class="site-header" role="banner">
+  <div class="header-bg">
+    <ul class="skip-links">
+      <li><a href="#main" id="skip-link-main">Skip to main content</a></li>
+    </ul>
+
+    <div class="nav-wrap">
+      {isHome ? (
+        <h1 id="routeSkipLink" class="site-logo">
+          <a href="/" id="top" tabindex="-1">
+            <span class="logotype-line1">Marcy</span>
+            <span class="logotype-line2">Sutton</span>
+            <span class="logotype-line3">.com</span>
+          </a>
+        </h1>
+      ) : (
+        <div class="site-logo">
+          <a href="/" id="top" tabindex="-1">
+            <span class="logotype-line1">Marcy</span>
+            <span class="logotype-line2">Sutton</span>
+            <span class="logotype-line3">.com</span>
+          </a>
+        </div>
+      )}
+
+      <nav id="global-nav" aria-label="Global" tabindex="-1">
+        <ul>
+          <li>
+            <a href="/" class={pathname === '/' ? 'active' : ''}>Home</a>
+          </li>
+          <li>
+            <a href="/about/" class={pathname === '/about/' ? 'active' : ''}>About</a>
+          </li>
+          <li>
+            <a href="/writing/" class={isWriting ? 'active' : ''}>Writing</a>
+          </li>
+          <li>
+            <a href="/talks/" class={isTalks ? 'active' : ''}>Talks</a>
+          </li>
+          <li>
+            <a href="/links/" class={pathname === '/links/' ? 'active' : ''}>Links</a>
+          </li>
+          <li>
+            <a href="/contact/" class={pathname === '/contact/' ? 'active' : ''}>Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<style>
+.header-bg {
+  background-image: url('/src/site-images/blurryWall-crop.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style>

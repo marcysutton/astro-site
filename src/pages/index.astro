@@ -1,0 +1,110 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import List from '../components/List.astro';
+import MediaGrid from '../components/MediaGrid.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+
+// Get content collections
+const allPosts = await getCollection('posts');
+const allFeatures = await getCollection('features');
+const allTalks = await getCollection('talks');
+
+// Sort posts by date (most recent first)
+const recentPosts = allPosts
+  .filter(post => !post.data.homeList === false && !post.data.unlisted)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 6);
+
+// Get featured item (Testing Accessibility)
+const featuredFeature = allFeatures.find(feature =>
+  feature.slug === 'testing-accessibility'
+);
+
+// Sort talks by date (most recent first)
+const recentTalks = allTalks
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 6);
+
+// Mock data for links (will need to be replaced with actual data source)
+const links = [
+  { id: '1', name: 'Testing Accessibility Workshop', link: 'https://testingaccessibility.com' },
+  { id: '2', name: 'Accessibility Articles', link: '/writing/' },
+  // Add more links as needed
+];
+
+// Mock data for gallery (will need to be replaced with actual images)
+const galleryImages = [
+  // Will be populated with actual image data
+];
+
+// Images will be handled by Astro's asset system
+// import homepageImage from '../site-images/react-rally-marcy-lg.jpg';
+// import featureImage from '../site-images/testing-accessibility-banner-2@2x.png';
+---
+
+<BaseLayout
+  title="Home"
+  bodyClass="home"
+  pathname="/"
+>
+  <div class="feature-list-wrap">
+    {featuredFeature && (
+      <section class="feature">
+        <div class="breathing-room">
+          <h2 class="subhead">Latest:Feature</h2>
+          <h3><a href={featuredFeature.data.path}>{featuredFeature.data.title}</a></h3>
+          <p set:html={featuredFeature.data.description}></p>
+          {featuredFeature.data.extendedDescription && (
+            <div set:html={featuredFeature.data.extendedDescription}></div>
+          )}
+        </div>
+      </section>
+    )}
+
+    <div class="home-aside">
+      <div class="service-tagline breathing-room">
+        <h2>I'm a senior web developer with a specialty in frontend accessibility.</h2>
+        <p>Learn <a href="/about/">about my work</a>.</p>
+      </div>
+
+      <List
+        className="list-writing-home breathing-room"
+        subtitle="Latest:Writing"
+        items={recentPosts}
+        listName="writing"
+      />
+    </div>
+  </div>
+
+  <NewsletterForm className="home breathing-room" />
+
+  <section aria-label="talks">
+    <MediaGrid
+      className="media-talks-home"
+      subtitle="I've spoken at some conferences:"
+      items={recentTalks}
+      itemLabel="talks"
+    />
+  </section>
+
+  <section class="list-image-wrap" aria-label="links">
+    <div class="list-links-home breathing-room">
+      <h2 class="subhead">Latest:Professional</h2>
+      <ul>
+        {links.map(item => (
+          <li key={item.id}>
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="retro-image"></div>
+  </section>
+</BaseLayout>

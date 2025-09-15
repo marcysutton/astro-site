@@ -1,0 +1,6 @@
+/images/*       https://marcy.codes/images/:splat
+/slides/*       https://marcy.codes/slides/:splat
+/wp-content/*   https://marcy.codes/wp-content/:splat
+/oldsite/       https://marcy.codes/oldsite/
+/oldsite/*      https://marcy.codes/oldsite/:splat
+/stuff/*        https://marcy.codes/stuff/:splat

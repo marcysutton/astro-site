@@ -1,0 +1,38 @@
+---
+export interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+---
+
+<div class={`newsletter-wrap ${className}`}>
+  <h3 id="newsletter-signup">Join my mailing list to keep up to date with the latest!</h3>
+  <form
+    class="newsletter__form"
+    action="https://app.convertkit.com/forms/1863867/subscriptions"
+    method="post"
+  >
+    <label>
+      <span class="labelText">Enter your email:</span>
+      <input
+        class="newsletter__field"
+        type="email"
+        id="email_address"
+        name="email_address"
+        placeholder="you@email.com"
+        required
+      />
+    </label>
+    <button type="submit">Subscribe</button>
+  </form>
+
+  <div aria-live="polite" id="newsletter-status">
+    <!-- Status messages will be handled by JavaScript -->
+  </div>
+
+  <p class="privacy-note">
+    This adds you to my TestingAccessibility.com subscriber list.<br />
+    I will not sell or share your information, period. Read my <a href="/privacy/">Privacy Policy</a>
+  </p>
+</div>

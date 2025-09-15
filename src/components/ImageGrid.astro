@@ -1,0 +1,20 @@
+---
+export interface Props {
+  subtitle: string;
+  className?: string;
+  images: any[];
+}
+
+const { subtitle, className = '', images } = Astro.props;
+---
+
+<div class={`image-grid ${className}`}>
+  <h2 class="subhead">{subtitle}</h2>
+  <div class="image-items">
+    {images.map((image, index) => (
+      <div class="image-item">
+        <img src={image.src} alt={image.alt || `Gallery image ${index + 1}`} />
+      </div>
+    ))}
+  </div>
+</div>

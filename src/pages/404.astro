@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RouteTargetHeading from '../components/RouteTargetHeading.astro';
+---
+
+<BaseLayout
+  title="Page Not Found"
+  bodyClass="page"
+  description="The page you're looking for doesn't exist"
+>
+  <div class="generic-wrap page-post-wrap">
+    <section class="page-post-detail">
+      <RouteTargetHeading>
+        Oops! Page Not Found
+      </RouteTargetHeading>
+
+      <p>The page you're looking for doesn't exist. It may have been moved or deleted.</p>
+
+      <p>Here are some helpful links:</p>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/writing/">Writing</a></li>
+        <li><a href="/talks/">Talks</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </section>
+  </div>
+</BaseLayout>

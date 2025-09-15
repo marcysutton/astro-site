@@ -1,0 +1,84 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RouteTargetHeading from '../components/RouteTargetHeading.astro';
+import List from '../components/List.astro';
+
+export async function getStaticPaths() {
+  // Get all content from collections
+  const posts = await getCollection('posts');
+  const features = await getCollection('features');
+  const talks = await getCollection('talks');
+
+  // Create paths for all content types
+  const allContent = [
+    ...posts.map(post => ({ params: { slug: post.data.path.replace(/^\//, '').replace(/\/$/, '') }, props: { entry: post, type: 'post' } })),
+    ...features.map(feature => ({ params: { slug: feature.data.path.replace(/^\//, '').replace(/\/$/, '') }, props: { entry: feature, type: 'feature' } })),
+    ...talks.map(talk => ({ params: { slug: talk.data.path.replace(/^\//, '').replace(/\/$/, '') }, props: { entry: talk, type: 'talk' } }))
+  ];
+
+  return allContent;
+}
+
+type Props = {
+  entry: CollectionEntry<'posts'> | CollectionEntry<'features'> | CollectionEntry<'talks'>;
+  type: 'post' | 'feature' | 'talk';
+};
+
+const { entry, type } = Astro.props;
+const { Content } = await entry.render();
+
+// Get related content for sidebar
+let relatedItems: any[] = [];
+if (type === 'post') {
+  const allPosts = await getCollection('posts');
+  relatedItems = allPosts
+    .filter(p => p.slug !== entry.slug && !p.data.unlisted)
+    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+    .slice(0, 10);
+}
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+---
+
+<BaseLayout
+  title={entry.data.title}
+  bodyClass={type}
+  pathname={entry.data.path}
+  description={entry.data.excerpt || entry.data.description}
+  image={entry.data.coverImage}
+>
+  <div class="generic-wrap page-post-wrap">
+    <section class="page-post-detail breathing-room">
+      <article>
+        <RouteTargetHeading targetID="global-nav">
+          {entry.data.title}
+        </RouteTargetHeading>
+
+        {entry.data.date && type !== 'feature' && (
+          <h2 class="subhead">{formatDate(entry.data.date)}</h2>
+        )}
+
+        <Content />
+      </article>
+    </section>
+
+    {type === 'post' && relatedItems.length > 0 && (
+      <aside class="page-post-list-wrap">
+        <List
+          className="list-writing-post breathing-room"
+          items={relatedItems}
+          listName="writing"
+          subtitle="More Posts"
+          pathname={Astro.url.pathname}
+        />
+      </aside>
+    )}
+  </div>
+</BaseLayout>

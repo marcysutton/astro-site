@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  className?: string;
+  listName: string;
+  subtitle?: string;
+  items: CollectionEntry<'posts'>[] | CollectionEntry<'talks'>[];
+  pathname?: string;
+  allItems?: boolean;
+  linkNewWindow?: boolean;
+}
+
+const {
+  className = '',
+  listName,
+  subtitle,
+  items,
+  pathname = '',
+  allItems = false,
+  linkNewWindow = false
+} = Astro.props;
+
+// Filter out unlisted items and current page item
+const filteredItems = items
+  .filter(item => !item.data.unlisted)
+  .filter(item => pathname.indexOf(item.data.path) === -1);
+---
+
+<div class={`list ${className}`}>
+  {subtitle && <h2 class="subhead">{subtitle}</h2>}
+
+  <ul>
+    {filteredItems.map(item => (
+      <li key={item.id}>
+        <a
+          class="item"
+          href={item.data.path}
+          target={linkNewWindow ? '_blank' : undefined}
+          rel={linkNewWindow ? 'noopener noreferrer' : undefined}
+        >
+          {item.data.title}
+        </a>
+        {item.data.excerpt && (
+          <div set:html={item.data.excerpt}></div>
+        )}
+      </li>
+    ))}
+  </ul>
+
+  {!allItems && (
+    <p class="more-link">
+      <a href={`/${listName}/`}>
+        <span class="more-link-text">All {listName}</span>
+      </a>
+    </p>
+  )}
+</div>

@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RouteTargetHeading from '../components/RouteTargetHeading.astro';
+import List from '../components/List.astro';
+
+const allPosts = await getCollection('posts');
+const publishedPosts = allPosts
+  .filter(post => !post.data.unlisted)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout
+  title="Writing"
+  bodyClass="page"
+  pathname="/writing/"
+  description="Web accessibility articles and blog posts by Marcy Sutton Todd"
+>
+  <div class="generic-wrap page-post-wrap">
+    <section class="page-post-detail">
+      <RouteTargetHeading>
+        Writing
+      </RouteTargetHeading>
+
+      <p>I write about web accessibility, JavaScript development, and my experiences working in tech. Here are all my posts:</p>
+
+      <List
+        className="list-writing-page breathing-room"
+        items={publishedPosts}
+        listName="writing"
+        allItems={true}
+      />
+    </section>
+  </div>
+</BaseLayout>

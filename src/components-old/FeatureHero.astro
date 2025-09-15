@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+
+export interface Props {
+  subhead: string;
+  title: string;
+  description: string;
+  extendedDescription?: string;
+  path: string;
+  image: ImageMetadata;
+  imageAlt: string;
+}
+
+const { 
+  subhead, 
+  title, 
+  description, 
+  extendedDescription = '', 
+  path, 
+  image, 
+  imageAlt 
+} = Astro.props;
+---
+
+<section class="feature">
+  <Image src={image} alt={imageAlt} />
+  <div class="breathing-room">
+    <h2 class="subhead">{subhead}</h2>
+    <h3><a href={path}>{title}</a></h3>
+    <p set:html={description}></p>
+    {extendedDescription && (
+      <div set:html={extendedDescription}></div>
+    )}
+  </div>
+</section>
