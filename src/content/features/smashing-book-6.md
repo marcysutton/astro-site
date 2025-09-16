@@ -2,7 +2,7 @@
 title: "Smashing Book 6: New Frontiers in Web Design"
 description: "I wrote a chapter in the latest Smashing Book on Accessibility in Single-Page Applications"
 path: "/smashing-book-6"
-coverImage: "./smashing-book-6.jpg"
+coverImage: "/static/site-images/smashing-book-6.jpg"
 ---
 
 <div class="floating-image">

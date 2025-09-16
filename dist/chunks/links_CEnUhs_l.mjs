@@ -1,0 +1,252 @@
+import { b as createAstro, c as createComponent, m as maybeRenderHead, d as addAttribute, a as renderTemplate } from './astro/server_Cci5PH9G.mjs';
+import 'kleur/colors';
+import 'clsx';
+
+const $$Astro = createAstro("https://marcysutton.com");
+const $$LinkList = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$LinkList;
+  const {
+    className = "",
+    subtitle,
+    subhead,
+    items,
+    allItems,
+    listName,
+    linkNewWindow = false
+  } = Astro2.props;
+  return renderTemplate`${maybeRenderHead()}<div${addAttribute(`link-list list ${className}`, "class")}> ${subtitle && renderTemplate`<h2 class="subhead">${subtitle}</h2>`} <ul> ${Array.from(items).map((item) => renderTemplate`<li> <a class="item"${addAttribute(item.link, "href")}${addAttribute(linkNewWindow ? "_blank" : void 0, "target")}${addAttribute(linkNewWindow ? "noopener noreferrer" : void 0, "rel")}> ${item.name} </a> </li>`)} </ul> </div>`;
+}, "/Users/marcystodd/Sites/MarcySutton.com/astro-site/src/components/LinkList.astro", void 0);
+
+const Items = [
+	{
+		link: "https://www.youtube.com/watch?v=0MssMIrqxGU",
+		name: "Leet Heat S1.E7: SaaS founder vs. a11y expert in web dev trivia"
+	},
+	{
+		link: "https://www.youtube.com/watch?v=lKX10eporCw",
+		name: "Chromatic webinar: Pragmatic accessibility testing for developers"
+	},
+	{
+		link: "https://syntax.fm/show/836/real-talk-on-web-accessibility-with-marcy-sutton-todd",
+		name: "Syntax.fm: Real Talk on Web Accessibility"
+	},
+	{
+		link: "https://www.youtube.com/watch?v=deybMk7hiuM",
+		name: "Frontend Masters Podcast Ep.13: A Deep Dive into Web Accessibility Insights"
+	},
+	{
+		link: "https://frontendmasters.com/teachers/marcy-sutton/",
+		name: "Marcy's courses on Frontend Masters"
+	},
+	{
+		link: "https://devjourney.info/Guests/222-MarcySutton.html",
+		name: "DevJourney podcast #222: Marcy Sutton photo journalist turned web dev and accessibility expert"
+	},
+	{
+		link: "https://ti.to/marcy-sutton/three-week-accessibility-masterclass-2022/discount/early",
+		name: "TestingAccessibility.com: 3-Week Accessibility Masterclass April 26-May 12, 2022"
+	},
+	{
+		link: "https://smashingconf.com/online-workshops/workshops/marcy-sutton-march/",
+		name: "Smashing Conf Virtual Workshop: Accessibility in Modern Applications, March 22-April 5, 2022"
+	},
+	{
+		link: "https://anchor.fm/frontendnerdery/episodes/14---Marcy-Sutton-e19h3ev/a-a3o9470",
+		name: "FrontEnd Nerdery Podcast with Marcy Sutton"
+	},
+	{
+		link: "https://github.com/readme/marcy-sutton",
+		name: "GitHub README project: Making accessibility in tech the rule, not the exception"
+	},
+	{
+		link: "https://reactpodcast.com/episodes/116",
+		name: "React Podcast: Marcy Sutton on Accessibility and Fighting for Work You Believe In"
+	},
+	{
+		link: "https://smashingconf.com/online-workshops/workshops/marcy-sutton-nov",
+		name: "Smashing Workshop: FrontEnd Accessibility Masterclass Starting Nov. 6"
+	},
+	{
+		link: "https://www.youtube.com/watch?v=ExNPlxmuwBE",
+		name: "A11yNYC Presentation, October 6: 5 Things I Learned from the Accessibility Community"
+	},
+	{
+		link: "https://www.smashingmagazine.com/2020/07/smashing-podcast-episode-20/",
+		name: "Smashing Podcast Episode 20 With Marcy Sutton: What Is Gatsby?"
+	},
+	{
+		link: "https://www.gatsbyjs.org/blog/2020-06-29-Gatsby-most-accessible-WebAIM-Million/",
+		name: "Gatsby Sites Most Reliably Accessible in WebAIM Million"
+	},
+	{
+		link: "https://www.youtube-nocookie.com/embed/uNuCy9wkszM",
+		name: "Accessibility with Marcy Sutton - The State of the Web from Google Chrome Developers"
+	},
+	{
+		link: "https://frontendmasters.com/courses/javascript-accessibility/",
+		name: "Frontend Masters: Accessibility in JavaScript Applications"
+	},
+	{
+		link: "https://www.gatsbyjs.org/blog/2019-07-11-user-testing-accessible-client-routing/",
+		name: "What I learned from user testing of accessible client-side routing techniques"
+	},
+	{
+		link: "https://www.deque.com/blog/accessibility-tips-in-single-page-applications/",
+		name: "Accessibility Tips in Single Page Applications"
+	},
+	{
+		link: "https://accessibilitycampseattle.org",
+		name: "Seattle Accessibility Camp - Saturday, May 18"
+	},
+	{
+		link: "https://egghead.io/podcasts/heading-gatsby-s-learning-experience-and-bridging-gaps-with-marcy-sutton",
+		name: "Egghead.io Podcast - Heading Gatsby's Learning Experience and Bridging Gaps"
+	},
+	{
+		link: "https://a11yrules.com/?s=marcy+sutton",
+		name: "A11y Rules Podcast"
+	},
+	{
+		link: "https://www.meetup.com/NW-Tech-Women/",
+		name: "NW Tech Women on Meetup"
+	},
+	{
+		link: "https://www.smashingmagazine.com/2018/09/smashing-book-6-release/",
+		name: "Smashing Book 6 – New Frontiers in Web Design"
+	},
+	{
+		link: "https://www.smashingmagazine.com/smashing-tv/accessibility-audit-live/",
+		name: "Smashing TV: Accessibility Audit Live"
+	},
+	{
+		link: "https://www.youtube-nocookie.com/embed/JWqHioGOELs",
+		name: "Madalyn Parker: Using aXe to Forge a Path – JSConf AU"
+	},
+	{
+		link: "https://www.deque.com/blog/axe-3-0-has-arrived/",
+		name: "aXe 3.0 has arrived: here’s what you need to know"
+	},
+	{
+		link: "https://www.24a11y.com/2017/writing-automated-tests-accessibility/",
+		name: "24A11y: Writing Automating Tests for Accessibility"
+	},
+	{
+		link: "https://www.youtube-nocookie.com/embed/8XjwDq9zG4I",
+		name: "Inclusive Design 24 – The Links vs. Buttons Showdown"
+	},
+	{
+		link: "https://www.deque.com/blog/test-leading-edge-accessibility-axe-coconut-axe-core-3-0/",
+		name: "Test the leading edge of accessibility with aXe Coconut and axe-core 3.0-alpha"
+	},
+	{
+		link: "http://www.tftscript.com/e24d89cb",
+		name: "The Art of Storytelling – Tales from the Script Podcast"
+	},
+	{
+		link: "https://www.lullabot.com/podcasts/drupalizeme-podcast/web-accessibility-with-marcy-sutton",
+		name: "Web Accessibility with Marcy Sutton: Lullabot Podcast"
+	},
+	{
+		link: "https://www.youtube-nocookie.com/embed/hWMc5HFk34A",
+		name: "aXe Live Tutorial"
+	},
+	{
+		link: "http://accessibilitycampseattle.org/",
+		name: "Accessibility Camp Seattle"
+	},
+	{
+		link: "https://frontsidethepodcast.simplecast.fm/61",
+		name: "The Frontside Podcast Ep. 61"
+	},
+	{
+		link: "https://vimeo.com/198517218",
+		name: "Is This Real Life? Splitboarding with Rainier McCheddarton"
+	},
+	{
+		link: "http://www.deque.com/blog/introducing-axe-2-1-7/",
+		name: "Introducing aXe 2.1.7"
+	},
+	{
+		link: "https://hashnode.com/ama/with-marcy-sutton-ciu7ybenl0235za53kdqpw0f5",
+		name: "Hashnode AMA with Marcy Sutton"
+	},
+	{
+		link: "https://pathtoperf.com/2016/09/29/12-with-marcy-sutton.html",
+		name: "Path to Performance Podcast"
+	},
+	{
+		link: "https://egghead.io/courses/start-building-accessible-web-applications-today",
+		name: "Egghead.io: Accessible Web Applications"
+	},
+	{
+		link: "http://www.deque.com/blog/introducing-axe-2-0/",
+		name: "Introducing aXe 2.0"
+	},
+	{
+		link: "https://javascriptair.com/episodes/2016-07-13/",
+		name: "JavaScript Air Podcast, July 13: Acccessibility Testing with aXe"
+	},
+	{
+		link: "https://medium.com/@ReactRally/accessibility-and-react-with-marcy-sutton-2040450b925d#.6w72ctr0o",
+		name: "React Rally speaker interview: Marcy Sutton"
+	},
+	{
+		link: "https://egghead.io/lessons/css-accessible-icon-buttons",
+		name: "Egghead.io – Accessible Icon Buttons"
+	},
+	{
+		link: "http://www.theguardian.com/sustainable-business/2015/dec/31/digital-discrimination-netflix-disney-target-web-accessibility-doj",
+		name: "The high cost of digital discrimination: The Guardian"
+	},
+	{
+		link: "http://girldevelopit.tumblr.com/post/137281409343/meet-the-leader-marcy-sutton",
+		name: "Meet the GDI Leader, Marcy Sutton!"
+	},
+	{
+		link: "https://cksource.com/blog/If-youre-not-thinking-about-accessibility-talk-with-marcy-sutton",
+		name: "If You’re Not Thinking About Accessibility – CKSource"
+	},
+	{
+		link: "http://www.accessibilityoz.com/ozplayer/#ozp-vs",
+		name: "A11y: A Documentary About Accessibility"
+	},
+	{
+		link: "http://www.saysomethingworthstealing.com/14-marcy-sutton-accessibility-engineer-at-adobe/",
+		name: "Interview: Say Something Worth Stealing"
+	},
+	{
+		link: "https://plus.google.com/events/ckd0vf27blav9ndi03h49ns4pos",
+		name: "Angular Air Ep. 21: Accessibility with Angular"
+	},
+	{
+		link: "https://www.smashingmagazine.com/2015/05/06/client-rendered-accessibility/",
+		name: "Notes on Client-Rendered Accessibility"
+	},
+	{
+		link: "https://a11ywins.tumblr.com",
+		name: "Accessibility Wins"
+	},
+	{
+		link: "http://www.prettydamnedfast.com/blog/2015/1/13/rider-profile-marcy-sutton",
+		name: "Rider profile in Pretty. Damned. Fast."
+	},
+	{
+		link: "https://devchat.tv/adventures-in-angular/027-aia-accessibility-with-marcy-sutton",
+		name: "Adventures in Angular: Marcy Sutton"
+	},
+	{
+		link: "http://angularjs.blogspot.com/2014/11/using-ngaria.html",
+		name: "Using ngAria: AngularJS Official Blog"
+	},
+	{
+		link: "https://shoptalkshow.com/episodes/141-marcy-sutton/",
+		name: "Me on the ShopTalk Show"
+	},
+	{
+		link: "http://www.creativebloq.com/netmag/how-make-sites-more-accessible-web-components-101413200",
+		name: "Netmag: Accessibility of Web Components"
+	}
+];
+
+export { $$LinkList as $, Items as I };

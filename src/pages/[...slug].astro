@@ -3,6 +3,8 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RouteTargetHeading from '../components/RouteTargetHeading.astro';
 import List from '../components/List.astro';
+import Video from '../components/Video.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 
 export async function getStaticPaths() {
   // Get all content from collections
@@ -30,14 +32,23 @@ const { Content } = await entry.render();
 
 // Get related content for sidebar
 let relatedItems: any[] = [];
+let divWrapperClassNames = "";
+let sectionClassNames = "";
 if (type === 'post') {
+  divWrapperClassNames = "generic-wrap page-post-wrap";
+  sectionClassNames = "page-post-detail breathing-room";
   const allPosts = await getCollection('posts');
   relatedItems = allPosts
     .filter(p => p.slug !== entry.slug && !p.data.unlisted)
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
     .slice(0, 10);
 }
-
+if (type === 'talk') {
+  sectionClassNames = "generic-wrap page-wrap breathing-room";
+}
+if (type === 'feature') {
+  sectionClassNames = "generic-wrap page-post-detail";
+}
 const formatDate = (date: Date) => {
   return date.toLocaleDateString('en-US', {
     year: 'numeric',
@@ -49,13 +60,13 @@ const formatDate = (date: Date) => {
 
 <BaseLayout
   title={entry.data.title}
-  bodyClass={type}
+  bodyClass={"page"}
   pathname={entry.data.path}
   description={entry.data.excerpt || entry.data.description}
   image={entry.data.coverImage}
 >
-  <div class="generic-wrap page-post-wrap">
-    <section class="page-post-detail breathing-room">
+  <div class={divWrapperClassNames}>
+    <section class={sectionClassNames}>
       <article>
         <RouteTargetHeading targetID="global-nav">
           {entry.data.title}
@@ -64,8 +75,11 @@ const formatDate = (date: Date) => {
         {entry.data.date && type !== 'feature' && (
           <h2 class="subhead">{formatDate(entry.data.date)}</h2>
         )}
-
+        {entry.data.videoSrcURL && entry.data.videoTitle ? <Video videoSrcURL={entry.data.videoSrcURL} videoTitle={entry.data.title} /> : null}
         <Content />
+        <footer aria-label="Breadcrumb">
+          <Breadcrumb url={type} section={`${type}s`} />
+        </footer>
       </article>
     </section>
 

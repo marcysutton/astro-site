@@ -10,25 +10,23 @@ const publishedTalks = allTalks
 ---
 
 <BaseLayout
-  title="Talks"
+  title="Talks & Presentations"
   bodyClass="page"
   pathname="/talks/"
   description="Conference talks and presentations by Marcy Sutton Todd about web accessibility"
 >
-  <div class="generic-wrap page-post-wrap">
-    <section class="page-post-detail">
-      <RouteTargetHeading>
-        Talks
-      </RouteTargetHeading>
+  <section class="generic-wrap talks-wrap breathing-room">
+    <RouteTargetHeading>
+      Talks
+    </RouteTargetHeading>
 
-      <p>I've been fortunate to speak at many conferences around the world about web accessibility and inclusive development practices. Here are recordings of some of my talks:</p>
+    <p>I've been fortunate to speak at many conferences around the world about web accessibility and inclusive development practices. Here are recordings of some of my talks:</p>
 
-      <MediaGrid
-        className="media-talks-page"
-        subtitle="Conference Presentations"
-        items={publishedTalks}
-        itemLabel="talks"
-      />
-    </section>
-  </div>
+    <MediaGrid
+      className="media-grid breathing-room media-grid-talks no-background"
+      allItems={true}
+      items={publishedTalks}
+      itemLabel="talks"
+    />
+  </section>
 </BaseLayout>

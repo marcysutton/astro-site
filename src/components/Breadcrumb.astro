@@ -1,0 +1,13 @@
+---
+type Props = {
+  section: string;
+  url: string;
+};
+
+const {section, url} = Astro.props;
+---
+
+<a class="breadcrumb" href={`/${url}`}>
+    <span aria-hidden="true">◀</span>  <span class="text">Back to {section}</span>
+</a>
+

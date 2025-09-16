@@ -1,20 +1,22 @@
 ---
+import { Image } from 'astro:assets';
+
 export interface Props {
   subtitle: string;
   className?: string;
-  images: any[];
+  images: Record<string, () => any>
 }
 
-const { subtitle, className = '', images } = Astro.props;
+const { images, subtitle, className = '' } = Astro.props;
 ---
 
-<div class={`image-grid ${className}`}>
-  <h2 class="subhead">{subtitle}</h2>
-  <div class="image-items">
-    {images.map((image, index) => (
-      <div class="image-item">
-        <img src={image.src} alt={image.alt || `Gallery image ${index + 1}`} />
-      </div>
-    ))}
-  </div>
+<div class={`media-grid image-grid ${className}`}>
+  <h2 class="subhead visually-hidden">{subtitle}</h2>
+  <ul class="image-items">
+      {Object.keys(images).map((key) => (
+        <li class="image-item">
+          <Image src={images[key]()} alt={""} />
+        </li>
+      ))}
+  </ul>
 </div>

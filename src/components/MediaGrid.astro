@@ -1,34 +1,33 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import MoreLink from './MoreLink.astro';
 
 export interface Props {
   className?: string;
-  subtitle: string;
+  subtitle?: string;
   items: CollectionEntry<'talks'>[];
   itemLabel: string;
+  allItems?: boolean;
 }
 
-const { className = '', subtitle, items, itemLabel } = Astro.props;
+const { className = '', subtitle, items, allItems = false, itemLabel } = Astro.props;
+
 ---
 
 <div class={`media-grid ${className}`}>
-  <h2 class="subhead">{subtitle}</h2>
-  <div class="media-items">
+  {subtitle && <h2 class="subhead">{subtitle}</h2>}
+  <ul class="media-items">
     {items.map(item => (
-      <div class="media-item">
-        <h3>
-          <a href={item.data.path}>{item.data.title}</a>
-        </h3>
-        {item.data.videoSrcURL && (
-          <div class="video-embed">
-            <iframe
-              src={item.data.videoSrcURL}
-              title={item.data.videoTitle}
-              allowfullscreen
-            ></iframe>
-          </div>
-        )}
-      </div>
+      <li class="media-item">
+        <a href={item.data.path}>
+          <Image src={item.data.posterImg} alt=""/>
+          {item.data.title}
+        </a>
+      </li>
     ))}
-  </div>
+  </ul>
+  { allItems ? null : 
+    <MoreLink itemLabel={itemLabel} />
+  }
 </div>

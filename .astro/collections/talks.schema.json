@@ -29,7 +29,8 @@
       "required": [
         "title",
         "date",
-        "path"
+        "path",
+        "posterImg"
       ],
       "additionalProperties": false
     }

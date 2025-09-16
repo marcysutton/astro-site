@@ -1,4 +1,6 @@
 ---
+import MoreLink from './MoreLink.astro';
+
 export interface Props {
   className?: string;
   subtitle?: string;
@@ -35,5 +37,6 @@ const {
         </a>
       </li>
     ))}
+    { allItems ? null : <MoreLink itemLabel={listName} /> }
   </ul>
 </div>

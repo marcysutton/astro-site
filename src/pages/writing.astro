@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RouteTargetHeading from '../components/RouteTargetHeading.astro';
 import List from '../components/List.astro';
+import TalkEvents from "../components/TalkEvents.astro";
+import PastEvents from "../components/PastEvents.astro";
 
 const allPosts = await getCollection('posts');
 const publishedPosts = allPosts
@@ -17,7 +19,7 @@ const publishedPosts = allPosts
   description="Web accessibility articles and blog posts by Marcy Sutton Todd"
 >
   <div class="generic-wrap page-post-wrap">
-    <section class="page-post-detail">
+    <section class="page-post-detail breathing-room">
       <RouteTargetHeading>
         Writing
       </RouteTargetHeading>
@@ -25,11 +27,15 @@ const publishedPosts = allPosts
       <p>I write about web accessibility, JavaScript development, and my experiences working in tech. Here are all my posts:</p>
 
       <List
-        className="list-writing-page breathing-room"
+        className="list list-writing no-background"
         items={publishedPosts}
         listName="writing"
         allItems={true}
       />
     </section>
+    <aside class="page-post-aside breathing-room">
+      <TalkEvents />
+      <PastEvents />
+  </aside>
   </div>
 </BaseLayout>

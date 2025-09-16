@@ -28,7 +28,6 @@ const filteredItems = items
   .filter(item => !item.data.unlisted)
   .filter(item => pathname.indexOf(item.data.path) === -1);
 
-console.log('items:', items);
 ---
 
 <div class={`list ${className}`}>

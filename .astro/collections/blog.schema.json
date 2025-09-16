@@ -1,0 +1,37 @@
+{
+  "$ref": "#/definitions/blog",
+  "definitions": {
+    "blog": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "posterImg": {
+          "type": "string"
+        },
+        "coverAlt": {
+          "type": "string"
+        },
+        "videoSrcURL": {
+          "type": "string"
+        },
+        "videoTitle": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "posterImg",
+        "coverAlt",
+        "videoSrcURL",
+        "videoTitle"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RouteTargetHeading from '../components/RouteTargetHeading.astro';
+
+---
+
+<BaseLayout
+  title="Home"
+  bodyClass="home"
+  pathname="/"
+>
+    <section class="generic-wrap">
+        <div class="breathing-room">
+            <RouteTargetHeading>
+                Thanks for your submission!
+            </RouteTargetHeading>
+
+            <p>I can't always respond to everyone, but I'll do my best to get back to you if and when I can. In the meantime, if it's urgent you can always reach me <a href="https://bsky.app/profile/marcysutton.com" target="_blank" rel="noopener noreferrer">on Bluesky</a>!</p>
+        </div>
+    </section>
+</BaseLayout>

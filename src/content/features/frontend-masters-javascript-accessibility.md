@@ -2,7 +2,7 @@
 title: "Frontend Masters Workshop: Accessibility in JavaScript Web Applications"
 description: "I wrote a full-day workshop on accessibility in modern websites and web apps, with focus on building and testing user interfaces."
 path: "/frontend-masters-javascript-accessibility"
-coverImage: "./frontend-masters-feature.jpg"
+coverImage: "/static/site-images/frontend-masters-feature.jpg"
 ---
 
 <div class="floating-image width50">

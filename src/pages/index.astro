@@ -1,16 +1,23 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import List from '../components/List.astro';
 import MediaGrid from '../components/MediaGrid.astro';
+import ImageGrid from "../components/ImageGrid.astro";
 import NewsletterForm from '../components/NewsletterForm.astro';
 import LinkList from '../components/LinkList.astro';
 import Items from "../data/links.json";
+
+import homepageImage from '../site-images/react-rally-marcy-lg.jpg';
+import featureImage from '../site-images/testing-accessibility-banner-2@2x.png';
 
 // Get content collections
 const allPosts = await getCollection('posts');
 const allFeatures = await getCollection('features');
 const allTalks = await getCollection('talks');
+const galleryPhotos = import.meta.glob<{ default: ImageMetadata }>('/src/gallery/*.{jpeg,jpg,png,gif}');
 const sevenItems = Object.values(Items).slice(0, 7);
 
 // Sort posts by date (most recent first)
@@ -18,8 +25,6 @@ const recentPosts = allPosts
   // .filter(post => !post.data.homeList === false && !post.data.unlisted)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 6);
-
-  console.log(allPosts)
 
 // Get featured item (Testing Accessibility)
 const featuredFeature = allFeatures.find(feature =>
@@ -30,15 +35,6 @@ const featuredFeature = allFeatures.find(feature =>
 const recentTalks = allTalks
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 6);
-
-// Mock data for gallery (will need to be replaced with actual images)
-const galleryImages = [
-  // Will be populated with actual image data
-];
-
-// Images will be handled by Astro's asset system
-// import homepageImage from '../site-images/react-rally-marcy-lg.jpg';
-// import featureImage from '../site-images/testing-accessibility-banner-2@2x.png';
 ---
 
 <BaseLayout
@@ -49,6 +45,7 @@ const galleryImages = [
   <div class="feature-list-wrap">
     {featuredFeature && (
       <section class="feature">
+        <Image src={featureImage} alt="" />
         <div class="breathing-room">
           <h2 class="subhead">Latest:Feature</h2>
           <h3><a href={featuredFeature.data.path}>{featuredFeature.data.title}</a></h3>
@@ -84,19 +81,26 @@ const galleryImages = [
       subtitle="I've spoken at some conferences:"
       items={recentTalks}
       itemLabel="talks"
+      allItems={false}
     />
   </section>
 
   <section class="list-image-wrap" aria-label="links">
-    <div class="list-links-home breathing-room">
+    <div class="list list-links-home breathing-room">
       <h2 class="subhead">Latest:Professional</h2>
       <LinkList 
           className="list-links no-background"
           items={ sevenItems }
           listName="links"
-          allItems={true}
+          allItems={false}
           linkNewWindow={true} />
     </div>
-    <div class="retro-image"></div>
+    <div class="professional-image">
+      <Image src={homepageImage} alt="Marcy speaking at React Rally in 2016" />
+    </div>
+  </section>
+
+  <section aria-label="Photos">
+    <ImageGrid subtitle="Photo gallery" className="media-photos-home" images={galleryPhotos} />
   </section>
 </BaseLayout>

@@ -2,11 +2,11 @@ import { defineCollection, z } from 'astro:content';
 
 const posts = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     date: z.string().transform((str) => new Date(str)),
     path: z.string(),
-    coverImage: z.string().optional(),
+    coverImage: image().optional(),
     excerpt: z.string().optional(),
     shortTitle: z.string().optional(),
     imageAlt: z.string().optional(),
@@ -17,25 +17,25 @@ const posts = defineCollection({
 
 const features = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
     extendedDescription: z.string().optional(),
     path: z.string(),
-    coverImage: z.string().optional(),
+    coverImage: image().optional(),
     imageAlt: z.string().optional(),
   }),
 });
 
 const talks = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     date: z.string().transform((str) => new Date(str)),
     path: z.string(),
     videoSrcURL: z.string().optional(),
     videoTitle: z.string().optional(),
-    posterImg: z.string().optional(),
+    posterImg: image(),
   }),
 });
 
