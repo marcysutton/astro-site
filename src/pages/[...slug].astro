@@ -34,6 +34,7 @@ const { Content } = await entry.render();
 let relatedItems: any[] = [];
 let divWrapperClassNames = "";
 let sectionClassNames = "";
+let breadcrumbUrl = "";
 if (type === 'post') {
   divWrapperClassNames = "generic-wrap page-post-wrap";
   sectionClassNames = "page-post-detail breathing-room";
@@ -42,9 +43,11 @@ if (type === 'post') {
     .filter(p => p.slug !== entry.slug && !p.data.unlisted)
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
     .slice(0, 10);
+  breadcrumbUrl = "writing";
 }
 if (type === 'talk') {
   sectionClassNames = "generic-wrap page-wrap breathing-room";
+  breadcrumbUrl = "talks";
 }
 if (type === 'feature') {
   sectionClassNames = "generic-wrap page-post-detail";
@@ -56,6 +59,7 @@ const formatDate = (date: Date) => {
     day: 'numeric'
   });
 };
+
 ---
 
 <BaseLayout
@@ -77,9 +81,9 @@ const formatDate = (date: Date) => {
         )}
         {entry.data.videoSrcURL && entry.data.videoTitle ? <Video videoSrcURL={entry.data.videoSrcURL} videoTitle={entry.data.title} /> : null}
         <Content />
-        <footer aria-label="Breadcrumb">
-          <Breadcrumb url={type} section={`${type}s`} />
-        </footer>
+        {(type === 'talk' || type === 'post') && <footer aria-label="Breadcrumb">
+          <Breadcrumb url={breadcrumbUrl} section={`${type}s`} />
+        </footer>}
       </article>
     </section>
 

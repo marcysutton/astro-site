@@ -2,18 +2,18 @@
 title: "Smashing Book 6: New Frontiers in Web Design"
 description: "I wrote a chapter in the latest Smashing Book on Accessibility in Single-Page Applications"
 path: "/smashing-book-6"
-coverImage: "/static/site-images/smashing-book-6.jpg"
+coverImage: "/src/site-images/smashing-book-6.jpg"
 ---
 
 <div class="floating-image">
     <img
-        src="images/smashing-cover.jpg"
+        src="../src/content/features/images/smashing-cover.jpg"
         alt="Gorgeous embossed hardcover of Smashing Book 6 on top of an illustrated map"
     />
 </div>
 <div class="floating-image">
     <img
-        src="images/smashing-chapter-start.jpg"
+        src="../src/content/features/images/smashing-chapter-start.jpg"
         alt="My book chapter on Accessibility in the Time of Single Page Apps"
     />
 </div>

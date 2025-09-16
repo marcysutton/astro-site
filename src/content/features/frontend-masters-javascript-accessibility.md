@@ -2,12 +2,12 @@
 title: "Frontend Masters Workshop: Accessibility in JavaScript Web Applications"
 description: "I wrote a full-day workshop on accessibility in modern websites and web apps, with focus on building and testing user interfaces."
 path: "/frontend-masters-javascript-accessibility"
-coverImage: "/static/site-images/frontend-masters-feature.jpg"
+coverImage: "/src/site-images/frontend-masters-feature.jpg"
 ---
 
 <div class="floating-image width50">
     <img
-        src="./images/marcy4.jpg"
+        src="../src/content/features/images/marcy4.jpg"
         alt="Me teaching the Frontend Masters in-person group"
     />
 </div>
@@ -54,7 +54,7 @@ It's worth pointing out that automated testing can only go so far, however; you 
 
 Writing a workshop for Frontend Masters was as big of an undertaking as I thought it would be–perhaps even more–but I'm so glad I did it based on the comments from viewers around the world. I'm a bit of a perfectionist so I coded and tested and worked late into the night on material for months to be ready for the live workshop streamed and recorded for learners across the world. I may have given up most of my summer to get this workshop off the ground but now you can all watch it and hopefully embed accessibility into your development workflow.
 
-Since publishing this course, I've also been notified that any accessibility workshop or talk of mine qualifies for Continuing Education Credits for the IAAP accessibility certification, and this course is part of that! If my materials helped you in some way, I'd love to hear about it [on Twitter](https://twitter.com/marcysutton). What accessibility wins have you been able to achieve?
+Since publishing this course, I've also been notified that any accessibility workshop or talk of mine qualifies for Continuing Education Credits for the IAAP accessibility certification, and this course is part of that! If my materials helped you in some way, I'd love to hear about it [on Bluesky](https://bsky.app/profile/marcysutton.com). What accessibility wins have you been able to achieve?
 
 ---
 
