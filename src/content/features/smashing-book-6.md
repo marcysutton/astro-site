@@ -7,13 +7,13 @@ coverImage: "/src/site-images/smashing-book-6.jpg"
 
 <div class="floating-image">
     <img
-        src="../src/content/features/images/smashing-cover.jpg"
+        src="./features/images/smashing-cover.jpg"
         alt="Gorgeous embossed hardcover of Smashing Book 6 on top of an illustrated map"
     />
 </div>
 <div class="floating-image">
     <img
-        src="../src/content/features/images/smashing-chapter-start.jpg"
+        src="./features/images/smashing-chapter-start.jpg"
         alt="My book chapter on Accessibility in the Time of Single Page Apps"
     />
 </div>

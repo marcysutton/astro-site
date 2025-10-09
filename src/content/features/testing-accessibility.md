@@ -9,7 +9,7 @@ imageAlt: "TestingAccessibility.com by Marcy Sutton. Comprehensive accessibility
 
 <div class="floating-image width50">
     <img
-        src="../src/content/features/images/testing-accessibility-banner-2@2x.png"
+        src="./features/images/testing-accessibility-banner-2@2x.png"
         alt="Learn How to Build Accessible Web Apps with Marcy Sutton"
     />
 </div>

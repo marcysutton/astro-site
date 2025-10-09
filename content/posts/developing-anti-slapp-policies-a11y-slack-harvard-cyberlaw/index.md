@@ -82,7 +82,7 @@ After I gave them all the information I had, they did their work and provided us
 
 <figure style="margin-bottom: 2em;">
   <div style="border: 1px solid #ccc; padding: 0.5em; margin-bottom: 0.5em;">
-    <img src="./memo-header.png" alt="Screenshot of the Memorandum from Harvard Cyberlaw, to me from Keren Benzion & Emily Miller Cc: Kendra Albert on April 17, 2024" /></div>
+    <img src="memo-header.png" alt="Screenshot of the Memorandum from Harvard Cyberlaw, to me from Keren Benzion & Emily Miller Cc: Kendra Albert on April 17, 2024" /></div>
   <figcaption style="text-align: center;">The Harvard Memo on A11y Slack Workspace Risk Mitigation (Full doc confidential)</figcaption>
 </figure>
 
