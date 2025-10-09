@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, type CollectionEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RouteTargetHeading from '../components/RouteTargetHeading.astro';
 import List from '../components/List.astro';
@@ -14,8 +14,22 @@ export async function getStaticPaths() {
 
   // Create paths for all content types
   const allContent = [
-    ...posts.map(post => ({ params: { slug: post.data.path.replace(/^\//, '').replace(/\/$/, '') }, props: { entry: post, type: 'post' } })),
-    ...features.map(feature => ({ params: { slug: feature.data.path.replace(/^\//, '').replace(/\/$/, '') }, props: { entry: feature, type: 'feature' } })),
+    ...posts.map(post => ({ 
+      params: { 
+        slug: post.data.path.replace(/^\//, '').replace(/\/$/, '') 
+      }, 
+        props: { entry: post, type: 'post' }
+      })),
+    ...features.map(feature => { 
+      const result = {
+        params: { 
+          slug: feature.id ?? feature.data.path.replace(/^\//, '').replace(/\/$/, '') 
+        }, 
+        props: { entry: feature, type: 'feature' } 
+    }
+    console.log(result);
+    return result;
+    }),
     ...talks.map(talk => ({ params: { slug: talk.data.path.replace(/^\//, '').replace(/\/$/, '') }, props: { entry: talk, type: 'talk' } }))
   ];
 
@@ -28,7 +42,7 @@ type Props = {
 };
 
 const { entry, type } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 // Get related content for sidebar
 let relatedItems: any[] = [];
@@ -65,7 +79,7 @@ const formatDate = (date: Date) => {
 <BaseLayout
   title={entry.data.title}
   bodyClass={"page"}
-  pathname={entry.data.path}
+  pathname={entry.id ?? entry.data.path}
   description={entry.data.excerpt || entry.data.description}
   image={entry.data.coverImage}
 >

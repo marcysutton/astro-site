@@ -16,6 +16,9 @@
         "path": {
           "type": "string"
         },
+        "slug": {
+          "type": "string"
+        },
         "coverImage": {
           "type": "string"
         },
@@ -28,8 +31,7 @@
       },
       "required": [
         "title",
-        "description",
-        "path"
+        "description"
       ],
       "additionalProperties": false
     }
