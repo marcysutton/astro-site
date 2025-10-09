@@ -5,13 +5,16 @@ path: "/focus-on-what-matters"
 coverImage: "./baby-hiking.jpg"
 excerpt: "I've landed on a new mantra through times of great change: focus on what matters. What's the most important thing right now?"
 ---
+import { Image } from 'astro:assets';
+import babyHiking from './baby-hiking.jpg';
+import familyHiking from './family-hiking.jpg';
 
 2022 has been a time of major life change for me. In addition to working successfully for the second year as an independent, I got married in January and celebrated two major launches by the end of July: my [Testing Accessibility project](/testing-accessibility) and a new baby, respectively.
 
 This all comes after a turbulent few years in my professional and personal life, with plenty of growth lessons (and lots of therapy). And yet, I’ve moved gracefully through these milestones. I landed on a mantra that kept me centered through it all: **_focus on what matters_**.
 
 <figure>
-    ![](./family-hiking.jpg)
+    <Image src={familyHiking} alt="Our little family hiking in the North Cascades" />
     <figcaption>Our little family hiking in the North Cascades</figcaption>
 </figure>
 
@@ -41,6 +44,6 @@ Gratitude is at the core of my practice, both for the important things kept in t
 Thank you, life, for all you have to offer.
 
 <figure>
-    ![The top of a baby's head covered in a little gray hat, in the mountains](./baby-hiking.jpg)
+    <img src={babyHiking.src} alt="The top of a baby's head covered in a little gray hat, in the mountains" />
     <figcaption>Family dreams coming true...my baby on trail.</figcaption>
 </figure>
