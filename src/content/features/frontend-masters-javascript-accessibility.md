@@ -1,15 +1,14 @@
 ---
-title: "Frontend Masters Workshop: Accessibility in JavaScript Web Applications"
-description: "I wrote a full-day workshop on accessibility in modern websites and web apps, with focus on building and testing user interfaces."
-path: "/frontend-masters-javascript-accessibility"
-coverImage: "/src/site-images/frontend-masters-feature.jpg"
+title: 'Frontend Masters Workshop: Accessibility in JavaScript Web Applications'
+description: 'I wrote a full-day workshop on accessibility in modern websites and web apps, with focus on building and testing user interfaces.'
+path: '/frontend-masters-javascript-accessibility'
+coverImage: '/src/site-images/frontend-masters-feature.jpg'
 ---
 
 <div class="floating-image width50">
-    <img
-        src="./marcy4.jpg"
-        alt="Me teaching the Frontend Masters in-person group"
-    />
+
+![Me teaching the Frontend Masters in-person group](./marcy4.jpg)
+
 </div>
 
 In July 2019, I traveled to Minneapolis to teach a workshop on [Accessibility in JavaScript Applications](https://frontendmasters.com/workshops/javascript-accessibility/), now available on the Frontend Masters website with a subscription. I wanted to show web developers how to work accessibility into modern JavaScript apps since they commonly have accessibility issues that present barriers to people with disabilities. It is also my opinion that JavaScript isn't going anywhere, so we might as well talk about how to make digital experiences built with it more accessible.
@@ -24,7 +23,7 @@ My slides are available on GitHub, along with a demo application with examples a
 
 In the workshop, we started off with some accessibility debugging techniques including keyboard testing, color contrast debugging, using accessibility browser extensions like axe and Accessibility Insights, zoom and magnification, and screen reader testing. This part went by fast, and it felt like it could have been a whole day workshop by itself!
 
-Accessibility debugging skills are useful no matter what kind of website or web application you're working on, so it was (hopefully) a useful introduction regardless of each student's JavaScript app experience. This section also set up the rest of the workshop material by providing techniques to test code along the way and prevent some of the technical debt typically committed when accessibility is continually deprioritized. 
+Accessibility debugging skills are useful no matter what kind of website or web application you're working on, so it was (hopefully) a useful introduction regardless of each student's JavaScript app experience. This section also set up the rest of the workshop material by providing techniques to test code along the way and prevent some of the technical debt typically committed when accessibility is continually deprioritized.
 
 > When developers take charge of basic accessibility testing in each commit or pull request, they often ship less technical debt and free up time for specialists to evaluate more complex and nuanced accessibility issues.
 
@@ -44,7 +43,7 @@ In this section, we covered:
 
 To wrap up the day, we went on a foray into automated testing of pages and units using Cypress, Jest, and Testing Library. I've taught on this subject for a few years and it's been really cool to see the tools evolve–no more struggling with test frameworks to test for accessible events! I couldn't believe how smoothly this went, it made me fall in love with automated accessibility testing even more.
 
-Any time you're building accessibility into a web application, ensuring test coverage for custom functionality can provide a contract with your fellow developers (and even your future self) so if a code update breaks accessibility, you'll know about it. Tests asserting keyboard focus management and UI mechanics are so powerful! And with tools for various parts of the testing lifecycle, you can build in accessibility coverage for both the nitty-gritty details (unit testing) and the bigger picture (integration or end-to-end tests). 
+Any time you're building accessibility into a web application, ensuring test coverage for custom functionality can provide a contract with your fellow developers (and even your future self) so if a code update breaks accessibility, you'll know about it. Tests asserting keyboard focus management and UI mechanics are so powerful! And with tools for various parts of the testing lifecycle, you can build in accessibility coverage for both the nitty-gritty details (unit testing) and the bigger picture (integration or end-to-end tests).
 
 Adding an accessibility test API like `cypress-axe` on top of your custom tests can add another layer of test coverage without a huge investment, as writing your own color contrast rules is a very steep learning curve, as I learned from experience working on the axe-core team.
 
