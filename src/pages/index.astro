@@ -28,13 +28,15 @@ const recentPosts = allPosts
 
 // Get featured item (Testing Accessibility)
 const featuredFeature = allFeatures.find(feature =>
-  feature.slug === 'testing-accessibility'
+  feature.id === 'testing-accessibility'
 );
 
 // Sort talks by date (most recent first)
 const recentTalks = allTalks
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 6);
+
+  console.log(featuredFeature)
 ---
 
 <BaseLayout

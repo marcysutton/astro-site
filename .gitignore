@@ -23,12 +23,6 @@ coverage
 # Cypress coverage
 cypress/integration/examples
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
-
-# Bower dependency directory (https://bower.io/)
-bower_components
-
 # node-waf configuration
 .lock-wscript
 
@@ -72,3 +66,5 @@ yarn-error.log
 .yarn-integrity
 
 dist
+
+.astro

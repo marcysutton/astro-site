@@ -25,7 +25,9 @@ My initial thought was that `content-visibility: auto` could pose an access prob
 The Web.dev team included a [nice demo on Codepen](https://codepen.io/vmpstr/pen/xxZoyMb) that I used right away, since a local Forem instance requires a more involved setup to mimic the live [Dev.to](https://dev.to) site. I noticed the Codepen authors had marked up `.story` DIV elements with CSS `content-visibility: auto` applied, with headings preceding those DIVs (so therefore outside). They'd possibly anticipated an accessibility issue, but didn't originally write about it* in the post.
 
 <figure>
-    <img src="/h2-snacks-story.png" alt="HTML snippet with an h2 preceding a DIV with the .story class" />
+    
+    ![HTML snippet with an h2 preceding a DIV with the .story class](h2-snacks-story.png)
+    
 </figure>
 
 A Google search turned up two posts from [CSS Tricks](https://css-tricks.com/more-on-content-visibility/) and [Steve Faulkner](https://html5accessibility.com/stuff/2020/08/25/short-note-on-content-visibility-hidden/), but neither touched on the impacts of `content-visibility: auto` on semantic structure. So here I go, writing about it!
