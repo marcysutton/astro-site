@@ -157,6 +157,9 @@ body {
 .feature-list-wrap .feature {
   background-color: #fff;
 }
+.feature-next-prev {
+  margin-top: 1rem;
+}
 .feature-list-wrap * {
   box-sizing: border-box;
 }
@@ -177,6 +180,18 @@ body {
 .home-aside .service-tagline p {
   font-size: 1rem;
   margin: 0;
+}
+.home .professional-image img {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  display: block;
+}
+.about-feature img:first-of-type {
+  margin-bottom: 1rem;
+}
+.about-feature ul {
+  margin-bottom: 2rem;
 }
 .newsletter-wrap {
   background-color: #026055;
@@ -288,12 +303,15 @@ button[type="submit"], input[type="submit"] {
   margin-bottom: 0;
 }
 .floating-image {
-  border: 1px solid #ccc;
   margin-bottom: 2em;
   margin-left: 2em;
   float: right;
   width: 30%;
 }
+.floating-image img {
+  border: 1px solid #ccc;
+}
+
 .floating-image.width50 {
   width: 50%;
 }

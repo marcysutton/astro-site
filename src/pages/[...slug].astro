@@ -27,7 +27,6 @@ export async function getStaticPaths() {
         }, 
         props: { entry: feature, type: 'feature' } 
     }
-    console.log(result);
     return result;
     }),
     ...talks.map(talk => ({ params: { slug: talk.data.path.replace(/^\//, '').replace(/\/$/, '') }, props: { entry: talk, type: 'talk' } }))
@@ -54,7 +53,7 @@ if (type === 'post') {
   sectionClassNames = "page-post-detail breathing-room";
   const allPosts = await getCollection('posts');
   relatedItems = allPosts
-    .filter(p => p.slug !== entry.slug && !p.data.unlisted)
+    .filter(p => p.id !== entry.id && !p.data.unlisted)
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
     .slice(0, 10);
   breadcrumbUrl = "writing";
